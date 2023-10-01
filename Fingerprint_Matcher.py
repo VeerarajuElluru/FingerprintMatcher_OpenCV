@@ -1,26 +1,22 @@
-# Goal is to find the best matching fingerprints. We would take altered fingerprints and match them with original ones
-# THe dataset 'Altered' consists of altered images, while the 'Real' contains the original fingerprints
-# We use OpenCV
+# The goal is to find the best matching fingerprints. We would take altered fingerprints and match them with the original ones
 
 import cv2
 import os
 
 sample = cv2.imread("SOCOFing/Altered/Altered-Hard/150__M_Right_index_finger_Obl.BMP")   # to load an image
-"""the above dummy sample has the obliteration and the central rotation as its alterations,
-it is also quite small"""
-# sample = cv2.resize(sample, None, fx=2.5, fy=2.5)   # fx and fy are the scaling factors
-# cv2.imshow('Sample', sample)    # disappears immediately
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-"""now we basically compare the key points of this image with the key points of all the real data samples"""
 
-"""Section 1: Initialising Variables required"""
+""" The above dummy sample has the obliteration and the central rotation as its alterations,
+it is also quite small"""
+
+# Now we basically compare the key points of this image with the key points of all the real data samples
+
+""" Section 1: Initialising Variables required """
 
 best_score = 0
 filename = None
 image = None    # to store the best match
 
-kp1, kp2, matchPoints = None, None, None # this is to identify and plot diff matching points and similarities
+kp1, kp2, matchPoints = None, None, None # This is to identify and plot different matching points and similarities
 
 
 """Section 2: The core algorithm"""
@@ -28,7 +24,7 @@ kp1, kp2, matchPoints = None, None, None # this is to identify and plot diff mat
 # tracker
 counter = 0
 # loop through all the real images in the directory
-for file in [file for file in os.listdir("SOCOFing/Real")][:1000]:
+for file in [file for file in os.listdir("SOCOFing/Real")]:    # can index out the list comprehension to only scan thru first x images 
     if counter % 10 == 0:
         print(counter, file)
     counter += 1
@@ -50,7 +46,7 @@ for file in [file for file in os.listdir("SOCOFing/Real")][:1000]:
 
     mp = []     # to store valid matches
     for p,q in matches:
-        if p.distance < 0.1*q.distance:     # case of valid matching
+        if p.distance < 0.1*q.distance:     # case of valid matching, tunable
             mp.append(p)
 
     key_points = min(len(key_points1), len(key_points2))
