@@ -5,8 +5,7 @@ import os
 
 sample = cv2.imread("SOCOFing/Altered/Altered-Hard/150__M_Right_index_finger_Obl.BMP")   # to load an image
 
-""" The above dummy sample has the obliteration and the central rotation as its alterations,
-it is also quite small"""
+# The above dummy sample has the obliteration and the central rotation as its alterations
 
 # Now we basically compare the key points of this image with the key points of all the real data samples
 
