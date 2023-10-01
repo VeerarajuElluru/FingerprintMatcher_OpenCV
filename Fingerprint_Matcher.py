@@ -24,7 +24,7 @@ kp1, kp2, matchPoints = None, None, None # This is to identify and plot differen
 # tracker
 counter = 0
 # loop through all the real images in the directory
-for file in [file for file in os.listdir("SOCOFing/Real")]:    # can index out the list comprehension to only scan thru first x images 
+for file in os.listdir("SOCOFing/Real"):    # can index out the list comprehension to only scan thru first x images 
     if counter % 10 == 0:
         print(counter, file)
     counter += 1
