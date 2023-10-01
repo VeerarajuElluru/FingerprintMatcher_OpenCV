@@ -1,0 +1,16 @@
+Obliteration: The act of obliterating, which is to partially or fully obstruct
+Methods of image fingerprint alterations:
+    - obliteration (full or partial)
+    - rotations (left, right, center)
+    - Z-cuts
+    - blur
+    - extra lines
+Scaling Factor for images
+
+SIFT - Skill Invariant Feature Transform
+     - Algorithm to detect, describe and match most of the local features
+     - better reading on the advantages of SIFT:  https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40
+
+Key-points are essentially those pixels that stand out from the nearing pixels
+Descriptors are the way to describe these key points
+FLANN - Fast Library for Approx Nearest Neighbours
